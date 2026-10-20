@@ -1,0 +1,10 @@
+#!/bin/sh
+case "$*" in
+    *-print-file-name=include*)
+        /m/tools/ndk/android-ndk-r21e/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe \
+            --target=aarch64-linux-gnu "$@" | tr '\\' '/'
+        exit 0
+        ;;
+esac
+exec /m/tools/ndk/android-ndk-r21e/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe \
+    --target=aarch64-linux-gnu "$@"
